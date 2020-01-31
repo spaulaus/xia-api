@@ -1,0 +1,35 @@
+# @authors S.V. Paulauskas, T.T. King, K. Smith, and K. Miernik
+# Copied from pixie/paass with the UPAK and ORPHAS exclusions removed
+
+#Build files
+*.o
+*.a
+
+#Backup files 
+*~
+*.swp
+*.layout
+*#*
+.*.cmd
+*.orig
+
+#Documentation directories and files
+html/
+latex/
+tmp/
+doc/classdiagramRawEvent.svg
+ValgrindOut.xml
+doc/
+doxywarning.txt
+
+#Compressed Files
+*.bz2
+*.tgz
+*.tar.gz
+
+#Ignore IDE files
+*.cbp
+*.layout
+*.save
+.idea/
+.vscode
