@@ -2,7 +2,7 @@
 #define PIXIE16SYS_GLOBALS_H
 
 /*----------------------------------------------------------------------
-* Copyright (c) 2005 - 2009, XIA LLC
+* Copyright (c) 2005 - 2020, XIA LLC
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, 
@@ -46,8 +46,8 @@
 *
 *		Declaration of pixie16 library global variables.
 *
-* $Rev: 15626 $
-* $Id: pixie16sys_globals.h 15626 2010-05-07 18:51:20Z htan $
+* $Rev$
+* $Id$
 ******************************************************************************/
 
 // If this is compiled by a C++ compiler, make it
@@ -55,18 +55,17 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	
-	PLX_UINT_PTR 		VAddr[SYS_MAX_NUM_MODULES];			// PCI device virutal address
-	PLX_DEVICE_OBJECT	SYS_hDevice[SYS_MAX_NUM_MODULES];	// PCI device handle
-	unsigned short		SYS_Number_Modules;					// Total number of modules in the crate
-	unsigned short		SYS_Offline;						// SYS_Offline = 1: offline mode; SYS_Offline = 0: Online mode
 
-	double  Ns_Per_Cycle;									// The time needed for each cycle, in ns
-	
-	
-	
+PLX_UINT_PTR VAddr[SYS_MAX_NUM_MODULES];  // PCI device virutal address
+PLX_DEVICE_OBJECT SYS_hDevice[SYS_MAX_NUM_MODULES];  // PCI device handle
+unsigned short SYS_Number_Modules;  // Total number of modules in the crate
+unsigned short SYS_Offline;  // SYS_Offline = 1: offline mode; SYS_Offline = 0: Online mode
+
+double Ns_Per_Cycle;  // The time needed for each cycle, in ns
+
+
 #ifdef __cplusplus
 }
-#endif	// End of notice for C++ compilers
+#endif  // End of notice for C++ compilers
 
-#endif	// End of pixie16sys_globals.h
+#endif  // End of pixie16sys_globals.h

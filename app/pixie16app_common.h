@@ -2,7 +2,7 @@
 #define __PIXIE16APP_COMMON_H
 
 /*----------------------------------------------------------------------
- * Copyright (c) 2005 - 2009, XIA LLC
+ * Copyright (c) 2005 - 2020, XIA LLC
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, 
@@ -46,8 +46,8 @@
  *
  *		Function prototypes shared among multiple files.
  *
- * $Rev: 27118 $
- * $Id: pixie16app_common.h 27118 2013-05-17 01:55:17Z htan $
+ * $Rev$
+ * $Id$
  ******************************************************************************/
 
 // If this is compiled by a C++ compiler, make it
@@ -60,40 +60,33 @@ extern "C" {
 	Functions that are only used locally
   -------------------------------------*/
 
-int Pixie_Start_Run (
-	unsigned short mode,           // mode = NEW_RUN or RESUME_RUN
-	unsigned short run_task,       // run task number
-	unsigned short control_task,   // control task number
-	unsigned short ModNum );
+int Pixie_Start_Run(unsigned short mode,  // mode = NEW_RUN or RESUME_RUN
+                    unsigned short run_task,  // run task number
+                    unsigned short control_task,  // control task number
+                    unsigned short ModNum);
 
-int Pixie_End_Run (
-	unsigned short ModNum );
+int Pixie_End_Run(unsigned short ModNum);
 
-int Pixie_Check_Run_Status (
-	unsigned short ModNum );
+int Pixie_Check_Run_Status(unsigned short ModNum);
 
-int Pixie_Control_Task_Run (
-	unsigned short ModNum,        // Pixie module number
-	unsigned short ControlTask,   // Control task number
-	unsigned int   Max_Poll );    // Timeout control in unit of ms for control task run
+int Pixie_Control_Task_Run(unsigned short ModNum,  // Pixie module number
+                           unsigned short ControlTask,  // Control task number
+                           unsigned int Max_Poll);  // Timeout control in unit of ms for control task run
 
-int Pixie_Broadcast (
-	char *str,                      // variable name whose value is to be broadcasted
-	unsigned short SourceModule );  // the source module number
+int Pixie_Broadcast(const char* str,  // variable name whose value is to be broadcasted
+                    unsigned short SourceModule);  // the source module number
 
-int Pixie_ComputeFIFO (
-	unsigned int TraceDelay,    // current trace dealy value
-	unsigned short ModNum,      // Pixie module number
-	unsigned short ChanNum );   // Pixie channel number
+int Pixie_ComputeFIFO(unsigned int TraceDelay,  // current trace dealy value
+                      unsigned short ModNum,  // Pixie module number
+                      unsigned short ChanNum);  // Pixie channel number
 
-int Pixie_CopyDSPParameters (
-	unsigned short BitMask,              // copy/extract bit mask pattern
-	unsigned short SourceModule,         // source module number
-	unsigned short SourceChannel,        // source Pixie channel
-	unsigned short DestinationModule,    // destination module number
-	unsigned short DestinationChannel ); // destination channel number
+int Pixie_CopyDSPParameters(unsigned short BitMask,  // copy/extract bit mask pattern
+                            unsigned short SourceModule,  // source module number
+                            unsigned short SourceChannel,  // source Pixie channel
+                            unsigned short DestinationModule,  // destination module number
+                            unsigned short DestinationChannel);  // destination channel number
 
-int Pixie_Init_DSPVarAddress(char *DSPVarFile, unsigned short ModNum);
+int Pixie_Init_DSPVarAddress(const char* DSPVarFile, unsigned short ModNum);
 
 int Pixie_Copy_DSPVarAddress(unsigned short SourceModNum, unsigned short DestinationModNum);
 
@@ -102,5 +95,3 @@ int Pixie_Copy_DSPVarAddress(unsigned short SourceModNum, unsigned short Destina
 #endif
 
 #endif
-
-
