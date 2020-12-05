@@ -1,5 +1,5 @@
-# @authors S.V. Paulauskas, T.T. King, K. Smith, and K. Miernik
-# Copied from pixie/paass with the UPAK and ORPHAS exclusions removed
+.idea/
+*build*/
 
 #Build files
 *.o
