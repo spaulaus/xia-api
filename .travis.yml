@@ -1,0 +1,46 @@
+env:
+  global:
+    - MAKEFLAGS="-j 8"
+language: cpp
+dist: focal
+os: linux
+arch: amd64
+
+jobs:
+  include:
+    - name: GCC 7 Test
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+    - name: GCC 8 Test
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-8
+      env:
+        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+    - name: GCC 9 Test
+      env:
+        - MATRIX_EVAL=""
+
+before_install:
+  - export ORIG_DIR=${PWD}
+  - eval "${MATRIX_EVAL}"
+  - git clone https://github.com/spaulaus/plx-api.git
+  - cd plx-api
+  - export PLX_SDK_DIR=${PWD}
+  - make all
+  - cd ${ORIG_DIR}
+
+script:
+  - mkdir build
+  - cd build/
+  - cmake ../
+  - make -j12
